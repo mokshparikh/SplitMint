@@ -1,16 +1,48 @@
-# React + Vite
+# SplitMint
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SplitMint is a sleek, Firebase-backed expense splitting app for small groups. Create a group, add expenses, and get clear settlement suggestions so everyone knows who owes whom.
 
-Currently, two official plugins are available:
+**Highlights**
+- Email/password auth with email verification.
+- Create groups with up to 4 participants (owner + 3 members).
+- Add expenses with equal, manual, or percentage splits.
+- Filter expenses by title, payer, date range, and amount range.
+- Dashboard with per-member balances and your net position.
+- Settlement recommendations to zero out balances quickly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Tech Stack**
+- React 19 + Vite (Rolldown Vite)
+- Firebase Auth + Firestore
+- React Router, React Icons
 
-## React Compiler
+**Getting Started**
+1. Install dependencies:
+```bash
+npm install
+```
+2. Start the dev server:
+```bash
+npm run dev
+```
+3. Open the app at the URL Vite prints in the terminal.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Firebase Setup**
+This project currently uses a Firebase config in `src/firebase.js`. To point it at your own Firebase project:
+- Create a Firebase project and enable Email/Password auth.
+- Create a Firestore database.
+- Replace the config object in `src/firebase.js` with your own values.
 
-## Expanding the ESLint configuration
+**Project Structure**
+- `src/App.jsx` app flow and auth gating
+- `src/pages/` screens (Home, AddGroup, Expenses, Dashboard, Settlements, Login, Signup)
+- `src/utils/` balance and group helpers
+- `src/firebase.js` Firebase initialization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Scripts**
+- `npm run dev` start dev server
+- `npm run build` build for production
+- `npm run preview` preview production build
+- `npm run lint` run ESLint
+
+**Notes**
+- Currency display is currently INR (₹). Update UI labels if you want another currency.
