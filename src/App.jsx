@@ -20,7 +20,6 @@ const App = () => {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [expenses, setExpenses] = useState([]);
 
-  // 🔐 AUTH LISTENER WITH EMAIL VERIFICATION CHECK
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
       if (u) {
@@ -36,8 +35,6 @@ const App = () => {
           setSelectedGroup(null);
           setExpenses([]);
           
-          // Optional: Show alert to verify email
-          // alert("Please verify your email before signing in. Check your inbox for the verification link.");
         }
       } else {
         setUser(null);
@@ -51,7 +48,7 @@ const App = () => {
     return () => unsubscribe();
   }, []);
 
-  // ✅ LOAD ONLY GROUPS WHERE USER IS PARTICIPANT
+
   useEffect(() => {
     if (!user) return;
 

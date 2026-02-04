@@ -5,7 +5,6 @@ import { auth } from "../firebase";
 const Header = ({ user }) => {
   return (
     <nav style={styles.navBar}>
-      {/* Decent Brand Logo */}
       <div style={styles.brandSection}>
         <h2 style={styles.brandName}>
           Splitmint<span style={styles.dot}>.</span>

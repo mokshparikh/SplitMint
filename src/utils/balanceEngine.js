@@ -1,7 +1,3 @@
-// ===============================
-// BALANCE ENGINE (PRODUCTION SAFE)
-// ===============================
-
 // expenses: [{ payerId, amount, splits: [{ participantId, amount }] }]
 // participants: [{ id, name }]
 

@@ -5,27 +5,23 @@ import {
 } from "../utils/balanceEngine";
 
 const Settlements = ({ group, expenses = [], setView }) => {
-  // ✅ Active participants only (removed users excluded)
+
   const activeParticipants = Array.isArray(group.participants)
     ? group.participants
     : [];
 
-  // ✅ Filter expenses to remove references of deleted participants
   const safeExpenses = expenses.filter((exp) =>
     exp.splits?.every((s) =>
       activeParticipants.some((p) => p.id === s.participantId)
     )
   );
 
-  // ✅ Compute balances safely
   const balances = calculateBalances(safeExpenses, activeParticipants);
 
-  // ✅ Remove zero-activity users (clean UI)
   const visibleBalances = Object.values(balances).filter(
     (b) => Math.abs(b.net) > 0.009 || b.paid > 0
   );
 
-  // ✅ Settlement suggestions
   const settlements = calculateSettlements(balances);
 
   return (
