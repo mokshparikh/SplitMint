@@ -17,7 +17,6 @@ const AddGroup = ({ user, setView, selectedGroup }) => {
   const [emails, setEmails] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // 🧠 PREFILL FORM FOR EDIT MODE
   useEffect(() => {
     if (isEditMode && selectedGroup) {
       setGroupName(selectedGroup.name);
@@ -51,7 +50,6 @@ const AddGroup = ({ user, setView, selectedGroup }) => {
 
     setLoading(true);
 
-    // 🧼 Clean & Deduplicate Emails
     const cleanEmails = [
       ...new Set(
         emails
@@ -60,7 +58,6 @@ const AddGroup = ({ user, setView, selectedGroup }) => {
       ),
     ].slice(0, 3);
 
-    // 👥 Build Participants Array
     const participants = [
       {
         id: user.uid,
@@ -78,7 +75,6 @@ const AddGroup = ({ user, setView, selectedGroup }) => {
       })),
     ];
 
-    // 🔥 IMPORTANT: Needed for App.jsx query
     const participantEmails = participants.map((p) =>
       p.email.toLowerCase()
     );

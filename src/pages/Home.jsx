@@ -3,7 +3,7 @@ import { deleteGroupCascade } from "../utils/groupUtils";
 import { calculateGroupTotal } from "../utils/groupSummary";
 
 const Home = ({ user, groups, expenses, setView, setSelectedGroup }) => {
-  // --- New State for Custom Popup ---
+
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [groupToDelete, setGroupToDelete] = useState(null);
 
@@ -59,7 +59,7 @@ const Home = ({ user, groups, expenses, setView, setSelectedGroup }) => {
       <div style={styles.container}>
         <header style={styles.header}>
           <h2 style={styles.welcome}>Welcome, {user?.displayName?.split(" ")[0] || "User"} 👋</h2>
-          <p style={styles.subtitle}>Track your shared expenses with style.</p>
+          <p style={styles.subtitle}>Track your shared expenses.</p>
         </header>
 
         <button style={styles.createBtn} onClick={() => { setSelectedGroup(null); setView("add-group"); }}>
@@ -107,7 +107,6 @@ const Home = ({ user, groups, expenses, setView, setSelectedGroup }) => {
 };
 
 const styles = {
-  // ... (keep previous styles and add these below)
   pageWrapper: { minHeight: "100vh", background: "#050505", color: "#fff", position: "relative", overflowX: "hidden", fontFamily: "'Inter', sans-serif" },
   glowOrb1: { position: "absolute", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)", top: "-100px", right: "-100px", zIndex: 0 },
   glowOrb2: { position: "absolute", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(45, 212, 191, 0.05) 0%, transparent 70%)", bottom: "-100px", left: "-100px", zIndex: 0 },
